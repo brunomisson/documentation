@@ -1,0 +1,136 @@
+.. Trabalho WebSIG documentation master file, created by
+   sphinx-quickstart on Wed Jul  1 17:57:54 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Trabalho da cadeira de WebSIG 2019/2020!
+========================================
+
+		Esta documentação visa apresentar a metologia utilizada para a criação de um webmap
+		para a cadeira de WebSIG de 2019/2020 do Mestrado em SIG e Modelação Territorial Aplicados ao Ordenamento – I.G.O.T.
+
+		
+Objetivos
+=========
+
+		Geral::
+		
+			Pretende-se com este trabalho implementar uma solução websig para apresentar cartogra-
+			ficamente os dados relativos ao número de infetados por COVID-19 em Portugal.
+			
+			
+		Específico::
+		
+			Apresentar a evolução da taxa de infetados por COVID-19/10.000 habitantes nos Concelhos
+			e Distritos de Portugal entre os meses de  março e maio, levando em consideração o  dia 
+			26 de cada mês.
+			
+
+Estrutura utilizada
+===================
+		Optou-se como solução websig utilizar o HTML em conjunto com a biblioteca Leaflet em parceria
+		com camadas GeoJSON desenhadas pelo navegador e linguagem JavaScript.  A escolha deste  conjunto
+		deu-se por enten- 
+		dermos que esta seja uma forma simplificada e elegante de apresentação de dados espaciais 
+		em  ambiente web.
+			
+Dados
+=====
+		Os dados utilizados para a elaboração do webmap foram coletados no portal da Direção Geral de Saúde
+		e no Instituto Nacional de Estatística.
+		
+		Os dados são referentes à::
+		
+			Infeção por COVID-19 por Concelho.
+			
+			Estimativa da população para o ano de 2018.
+
+
+Pré-processamento
+=================
+		Os dados vetoriais foram trabalhados utilizando o software QGis::
+		
+			1- Selecionar os dados de infetados por Concelho nos dias 26 de cada mês
+			
+			2- Aplicar a expressão (Infetados/Total Habitantes)*10000
+			
+			3- Simplificar as feições do shapefile para diminuir o total de vértices
+			
+			4- Exportar o arquivo para o formato GeoJSON
+			
+			5- Agrupar os Concelhos por Distrito e realizar os mesmos procedimentos
+			
+		
+		Os dados em formato GeoJSON foram editados utilizando o software Notepad++. Para possibilitar
+		a utilização de um layer de Concelho e outro de Distrito no webmap 	foi necessário agrupar os
+		dois ficheiros GeoJSON criados no processo anterior. A estrutura é resumidamente  apresentada 
+		abaixo::
+				data = {
+				"type": "FeatureCollection",
+				"name": "casoscovid",
+				"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+				"features": [...
+				
+				distrito = {
+				"type": "FeatureCollection",
+				"name": "dist",
+				"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+				"features": [...
+			
+		Inicialmente as variáveis "data" e "distrito" não existem, durante a edição é feita atribuição
+		da variável para que o código final do webmap entenda a quais geometria e atributos estão associadas
+		cada variável. Estas variáveis podem ter qualquer nome, desde que no HTML e no ficheiro 
+		GeoJSON tenham a mesma nomenclatura.
+		
+		Para a criação do HTML utilizou-se o software Notepad++::
+		
+				Mapa base utilizado - Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox
+				
+				Categorias da legenda - 11 classes variando em 5 unidades entre 0 a 50
+				
+				Layers existentes - 3 de Concelhos e 3 de Distritos, um para cada mês
+				
+Funcionalidades do mapa
+=======================
+		O webmap gerado está disponível através do link::
+		
+			https://brunomisson.github.io/TrabalhoWebSig/
+		
+		Ao acessar o link é apresentado ao usuário os dados referentes a taxa de casos de COVID-19/10.000 hab
+		por Distrito na data de 26/05/2020.
+		
+		No janela superior direita o usuário tem a possibilidade de alterar os layers existentes no mapa para
+		a data desejada.
+		
+		O mapa permite utilização de zoom in e zoom out e ao clicar em um layer é feita a aproximação para a 
+		camada selecionada.
+		
+		Ao passar o ponteiro do rato sobre layer é apresentado o nome da camada e as taxas de infetados  nos 
+		três meses analisados.
+		
+Considerações Finais
+====================
+		Os recursos de apresentação utilizados neste projeto reforçam e ampliam os conhecimentos adquiridos na
+		sala de aula, uma vez que abordam funcionalidades distintas das utilizadas durante os exercícios práticos.
+		
+		A utilização do websig como forma de apresentação de dados espaciais mostrou-se muito eficaz e simplificada
+		a partir da utilização da biblioteca Leaflet e das camadas em GeoJSON. A integração dessas ferramentas pode
+		ser muito importante para apresentação de dados de trabalhos futuros, seja para entrega de um produto final ou
+		para auxiliar equipes técnicas durante o processo de decisão.
+		
+		Os webmaps são também uma forma simples de visualização e manipulação dos mapas para usuários que não estão
+		familizarizados com softwares de SIG por permitirem a interação com objetos específicos e já pré estabelecidos
+		pelo profissional que elaborou o mapa.
+		
+Dados do Projeto
+================
+Universidade de Lisboa
+
+Instituto de Geografia e Ordenamento do Território - IGOT
+
+Disciplina: WebSIG
+
+Professor: Nelson Mileu
+
+Aluno: Bruno Misson Mori Barbosa
+		

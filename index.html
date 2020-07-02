@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Trabalho da cadeira de WebSIG 2019/2020! &#8212; Casos de COVID-19 em Portugal 0.0.1 documentation</title>
+    <link rel="stylesheet" href="static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="#">Casos de COVID-19 em Portugal 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="trabalho-da-cadeira-de-websig-2019-2020">
+<h1>Trabalho da cadeira de WebSIG 2019/2020!<a class="headerlink" href="#trabalho-da-cadeira-de-websig-2019-2020" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Esta documentação visa apresentar a metologia utilizada para a criação de um webmap
+para a cadeira de WebSIG de 2019/2020 do Mestrado em SIG e Modelação Territorial Aplicados ao Ordenamento – I.G.O.T.</p>
+</div></blockquote>
+</div>
+<div class="section" id="objetivos">
+<h1>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Geral:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pretende</span><span class="o">-</span><span class="n">se</span> <span class="n">com</span> <span class="n">este</span> <span class="n">trabalho</span> <span class="n">implementar</span> <span class="n">uma</span> <span class="n">solução</span> <span class="n">websig</span> <span class="n">para</span> <span class="n">apresentar</span> <span class="n">cartogra</span><span class="o">-</span>
+<span class="n">ficamente</span> <span class="n">os</span> <span class="n">dados</span> <span class="n">relativos</span> <span class="n">ao</span> <span class="n">número</span> <span class="n">de</span> <span class="n">infetados</span> <span class="n">por</span> <span class="n">COVID</span><span class="o">-</span><span class="mi">19</span> <span class="n">em</span> <span class="n">Portugal</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Específico:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apresentar</span> <span class="n">a</span> <span class="n">evolução</span> <span class="n">da</span> <span class="n">taxa</span> <span class="n">de</span> <span class="n">infetados</span> <span class="n">por</span> <span class="n">COVID</span><span class="o">-</span><span class="mi">19</span><span class="o">/</span><span class="mf">10.000</span> <span class="n">habitantes</span> <span class="n">nos</span> <span class="n">Concelhos</span>
+<span class="n">e</span> <span class="n">Distritos</span> <span class="n">de</span> <span class="n">Portugal</span> <span class="n">entre</span> <span class="n">os</span> <span class="n">meses</span> <span class="n">de</span>  <span class="n">março</span> <span class="n">e</span> <span class="n">maio</span><span class="p">,</span> <span class="n">levando</span> <span class="n">em</span> <span class="n">consideração</span> <span class="n">o</span>  <span class="n">dia</span>
+<span class="mi">26</span> <span class="n">de</span> <span class="n">cada</span> <span class="n">mês</span><span class="o">.</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="estrutura-utilizada">
+<h1>Estrutura utilizada<a class="headerlink" href="#estrutura-utilizada" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Optou-se como solução websig utilizar o HTML em conjunto com a biblioteca Leaflet em parceria
+com camadas GeoJSON desenhadas pelo navegador e linguagem JavaScript.  A escolha deste  conjunto
+deu-se por enten-
+dermos que esta seja uma forma simplificada e elegante de apresentação de dados espaciais
+em  ambiente web.</p>
+</div></blockquote>
+</div>
+<div class="section" id="dados">
+<h1>Dados<a class="headerlink" href="#dados" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Os dados utilizados para a elaboração do webmap foram coletados no portal da Direção Geral de Saúde
+e no Instituto Nacional de Estatística.</p>
+<p>Os dados são referentes à:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Infeção</span> <span class="n">por</span> <span class="n">COVID</span><span class="o">-</span><span class="mi">19</span> <span class="n">por</span> <span class="n">Concelho</span><span class="o">.</span>
+
+<span class="n">Estimativa</span> <span class="n">da</span> <span class="n">população</span> <span class="n">para</span> <span class="n">o</span> <span class="n">ano</span> <span class="n">de</span> <span class="mf">2018.</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="pre-processamento">
+<h1>Pré-processamento<a class="headerlink" href="#pre-processamento" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Os dados vetoriais foram trabalhados utilizando o software QGis:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">-</span> <span class="n">Selecionar</span> <span class="n">os</span> <span class="n">dados</span> <span class="n">de</span> <span class="n">infetados</span> <span class="n">por</span> <span class="n">Concelho</span> <span class="n">nos</span> <span class="n">dias</span> <span class="mi">26</span> <span class="n">de</span> <span class="n">cada</span> <span class="n">mês</span>
+
+<span class="mi">2</span><span class="o">-</span> <span class="n">Aplicar</span> <span class="n">a</span> <span class="n">expressão</span> <span class="p">(</span><span class="n">Infetados</span><span class="o">/</span><span class="n">Total</span> <span class="n">Habitantes</span><span class="p">)</span><span class="o">*</span><span class="mi">10000</span>
+
+<span class="mi">3</span><span class="o">-</span> <span class="n">Simplificar</span> <span class="k">as</span> <span class="n">feições</span> <span class="n">do</span> <span class="n">shapefile</span> <span class="n">para</span> <span class="n">diminuir</span> <span class="n">o</span> <span class="n">total</span> <span class="n">de</span> <span class="n">vértices</span>
+
+<span class="mi">4</span><span class="o">-</span> <span class="n">Exportar</span> <span class="n">o</span> <span class="n">arquivo</span> <span class="n">para</span> <span class="n">o</span> <span class="n">formato</span> <span class="n">GeoJSON</span>
+
+<span class="mi">5</span><span class="o">-</span> <span class="n">Agrupar</span> <span class="n">os</span> <span class="n">Concelhos</span> <span class="n">por</span> <span class="n">Distrito</span> <span class="n">e</span> <span class="n">realizar</span> <span class="n">os</span> <span class="n">mesmos</span> <span class="n">procedimentos</span>
+</pre></div>
+</div>
+<p>Os dados em formato GeoJSON foram editados utilizando o software Notepad++. Para possibilitar
+a utilização de um layer de Concelho e outro de Distrito no webmap      foi necessário agrupar os
+dois ficheiros GeoJSON criados no processo anterior. A estrutura é resumidamente  apresentada
+abaixo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;casoscovid&quot;</span><span class="p">,</span>
+<span class="s2">&quot;crs&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;urn:ogc:def:crs:OGC:1.3:CRS84&quot;</span> <span class="p">}</span> <span class="p">},</span>
+<span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span>
+
+<span class="n">distrito</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dist&quot;</span><span class="p">,</span>
+<span class="s2">&quot;crs&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;urn:ogc:def:crs:OGC:1.3:CRS84&quot;</span> <span class="p">}</span> <span class="p">},</span>
+<span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>Inicialmente as variáveis “data” e “distrito” não existem, durante a edição é feita atribuição
+da variável para que o código final do webmap entenda a quais geometria e atributos estão associadas
+cada variável. Estas variáveis podem ter qualquer nome, desde que no HTML e no ficheiro
+GeoJSON tenham a mesma nomenclatura.</p>
+<p>Para a criação do HTML utilizou-se o software Notepad++:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Mapa base utilizado - Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox
+
+Categorias da legenda - 11 classes variando em 5 unidades entre 0 a 50
+
+Layers existentes - 3 de Concelhos e 3 de Distritos, um para cada mês
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="funcionalidades-do-mapa">
+<h1>Funcionalidades do mapa<a class="headerlink" href="#funcionalidades-do-mapa" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>O webmap gerado está disponível através do link:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">brunomisson</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">TrabalhoWebSig</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Ao acessar o link é apresentado ao usuário os dados referentes a taxa de casos de COVID-19/10.000 hab
+por Distrito na data de 26/05/2020.</p>
+<p>No janela superior direita o usuário tem a possibilidade de alterar os layers existentes no mapa para
+a data desejada.</p>
+<p>O mapa permite utilização de zoom in e zoom out e ao clicar em um layer é feita a aproximação para a
+camada selecionada.</p>
+<p>Ao passar o ponteiro do rato sobre layer é apresentado o nome da camada e as taxas de infetados  nos
+três meses analisados.</p>
+</div></blockquote>
+</div>
+<div class="section" id="consideracoes-finais">
+<h1>Considerações Finais<a class="headerlink" href="#consideracoes-finais" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Os recursos de apresentação utilizados neste projeto reforçam e ampliam os conhecimentos adquiridos na
+sala de aula, uma vez que abordam funcionalidades distintas das utilizadas durante os exercícios práticos.</p>
+<p>A utilização do websig como forma de apresentação de dados espaciais mostrou-se muito eficaz e simplificada
+a partir da utilização da biblioteca Leaflet e das camadas em GeoJSON. A integração dessas ferramentas pode
+ser muito importante para apresentação de dados de trabalhos futuros, seja para entrega de um produto final ou
+para auxiliar equipes técnicas durante o processo de decisão.</p>
+<p>Os webmaps são também uma forma simples de visualização e manipulação dos mapas para usuários que não estão
+familizarizados com softwares de SIG por permitirem a interação com objetos específicos e já pré estabelecidos
+pelo profissional que elaborou o mapa.</p>
+</div></blockquote>
+</div>
+<div class="section" id="dados-do-projeto">
+<h1>Dados do Projeto<a class="headerlink" href="#dados-do-projeto" title="Permalink to this headline">¶</a></h1>
+<p>Universidade de Lisboa</p>
+<p>Instituto de Geografia e Ordenamento do Território - IGOT</p>
+<p>Disciplina: WebSIG</p>
+<p>Professor: Nelson Mileu</p>
+<p>Aluno: Bruno Misson Mori Barbosa</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Trabalho da cadeira de WebSIG 2019/2020!</a></li>
+<li><a class="reference internal" href="#objetivos">Objetivos</a></li>
+<li><a class="reference internal" href="#estrutura-utilizada">Estrutura utilizada</a></li>
+<li><a class="reference internal" href="#dados">Dados</a></li>
+<li><a class="reference internal" href="#pre-processamento">Pré-processamento</a></li>
+<li><a class="reference internal" href="#funcionalidades-do-mapa">Funcionalidades do mapa</a></li>
+<li><a class="reference internal" href="#consideracoes-finais">Considerações Finais</a></li>
+<li><a class="reference internal" href="#dados-do-projeto">Dados do Projeto</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="#">Casos de COVID-19 em Portugal 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Bruno Barbosa.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.
+    </div>
+  </body>
+</html>
